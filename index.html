@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLEPOLO - Tienda Virtual de Sapatillas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #f97316;
+            --accent-color: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--accent-color) !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--accent-color) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #2563eb);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 100%;
+            border: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            background: var(--primary-color);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.4);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            z-index: 1050;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-cart:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+
+        .cart-content {
+            padding: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            transition: var(--transition);
+        }
+
+        .cart-item:hover {
+            background: var(--bg-light);
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-price {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .cart-total {
+            background: var(--bg-light);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cart-total h4 {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .cart-actions {
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .cart-action-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .clear-cart-btn {
+            background: #dc2626;
+            color: white;
+        }
+
+        .clear-cart-btn:hover {
+            background: #b91c1c;
+        }
+
+        .checkout-btn {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .checkout-btn:hover {
+            background: #ea580c;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1055;
+        }
+
+        .toast {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transform: translateX(400px);
+            transition: var(--transition);
+            min-width: 300px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-success {
+            border-left: 4px solid #22c55e;
+        }
+
+        .toast-error {
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Login Modal */
+        .modal-header {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tshirt me-2"></i>STYLEPOLO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+                <button class="cart-btn ms-3" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart me-2"></i>
+                    Carrito
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="container">
+                <h1>Estilo y Calidad en Cada Sapatilla</h1>
+                <p>Descubre nuestra colección exclusiva de zapatillas premium con diseños únicos y materiales de alta calidad</p>
+                <button class="hero-btn" onclick="scrollToProducts()">
+                    <i class="fas fa-shopping-bag me-2"></i>
+                    Explorar Productos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="text-danger" id="loginError" style="display: none;">Usuario o contraseña incorrectos.</div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="login()">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="row" id="productsContainer">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart me-2"></i>Mi Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-content">
+            <div id="cartItems">
+                <!-- Los items del carrito se cargarán aquí -->
+            </div>
+            
+            <div class="cart-total">
+                <h4>Total: S/ <span id="cartTotal">0.00</span></h4>
+            </div>
+        </div>
+        
+        <div class="cart-actions">
+            <button class="cart-action-btn clear-cart-btn" onclick="clearCart()">
+                <i class="fas fa-trash me-2"></i>Vaciar
+            </button>
+            <button class="cart-action-btn checkout-btn" onclick="checkout()">
+                <i class="fas fa-credit-card me-2"></i>Comprar
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Los toasts se mostrarán aquí -->
+    </div>
+
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+        // Base de datos de productos
+        const products = [
+            {
+                id: 1,
+                name: "Zapatilla Clásica Negra",
+                price: 89.90,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=300&fit=crop",
+                description: "Zapatilla clásica negra, perfecta para cualquier ocasión."
+            },
+            {
+                id: 2,
+                name: "Zapatilla Deportiva Azul",
+                price: 99.90,
+                image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=300&h=300&fit=crop",
+                description: "Zapatilla deportiva azul, ideal para tus actividades al aire libre."
+            },
+            {
+                id: 3,
+                name: "Zapatilla Casual Blanca",
+                price: 79.90,
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=300&h=300&fit=crop",
+                description: "Zapatilla casual blanca, cómoda y versátil para el día a día."
+            },
+            {
+                id: 4,
+                name: "Zapatilla Elegante Gris",
+                price: 109.90,
+                image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=300&h=300&fit=crop",
+                description: "Zapatilla elegante gris, perfecta para ocasiones especiales."
+            },
+            {
+                id: 5,
+                name: "Zapatilla de Verano Verde",
+                price: 69.90,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=300&fit=crop",
+                description: "Zapatilla ligera para el verano, ideal para climas cálidos."
+            },
+            {
+                id: 6,
+                name: "Zapatilla de Invierno Marrón",
+                price: 119.90,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=300&fit=crop",
+                description: "Zapatilla abrigada para el invierno, confeccionada con materiales de alta calidad."
+            }
+        ];
+
+        // Estado del carrito
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let isLoggedIn = false;
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            updateCartUI();
+        });
+
+        // Renderizar productos
+        function renderProducts() {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = products.map(product => `
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card product-card">
+                        <img src="${product.image}" class="product-image" alt="${product.name}">
+                        <div class="card-body">
+                            <h5 class="product-title">${product.name}</h5>
+                            <p class="product-price">S/ ${product.price.toFixed(2)}</p>
+                            <p class="product-description">${product.description}</p>
+                            <button class="btn add-to-cart-btn" onclick="addToCart(${product.id})">
+                                <i class="fas fa-cart-plus me-2"></i>Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Agregar producto al carrito
+        function addToCart(productId) {
+            if (!isLoggedIn) {
+                showToast('Por favor, inicia sesión para agregar productos al carrito.', 'error');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingProduct = cart.find(p => p.id === productId);
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({ id: productId, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        } 
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            if (itemIndex !== -1) {
+                cart.splice(itemIndex, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartUI();
+                showToast('Producto eliminado del carrito.', 'success');
+            }
+        }
+
+        // Update cart UI
+        function updateCartUI() {
+            const cartCountElement = document.getElementById('cartCount');
+            const cartTotalElement = document.getElementById('cartTotal');
+            const cartSidebarElement = document.getElementById('cartSidebar');
+            const cartItemsContainer = cartSidebarElement.querySelector('.cart-content');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => {
+                const product = products.find(p => p.id === item.id);
+                return sum + (product.price * item.quantity);
+            }, 0);
+
+            cartCountElement.textContent = totalItems;
+            cartTotalElement.textContent = `S/ ${totalPrice.toFixed(2)}`;
+
+            cartItemsContainer.innerHTML = cart.map(item => {
+                const product = products.find(p => p.id === item.id);
+                return `
+                    <div class="cart-item">
+                        <img src="${product.image}" class="cart-item-image" alt="${product.name}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${product.name}</div>
+                            <div class="cart-item-price">S/ ${product.price.toFixed(2)} x ${item.quantity}</div>
+                            <button onclick="removeFromCart(${product.id})" class="btn btn-danger btn-sm">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Import Login component
+        const Login = Vue.component('login', {
+            template: `
+                <div>
+                    <h1>Login</h1>
+                    <form @submit.prevent="login">
+                        <input type="text" v-model="username" placeholder="Username">
+                        <input type="password" v-model="password" placeholder="Password">
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+            `,
+            data() {
+                return {
+                    username: '',
+                    password: ''
+                }
+            },
+            methods: {
+                login() {
+                    // Simulate login logic
+                    isLoggedIn = true;
+                    showToast('Bienvenido!', 'success');
+                }
+            }
+        });
+
+        // Define routes
+        const routes = [
+            { path: '/', component: { template: '<iframe src="Inicio/Inicio.html" style="width:100%; height:100vh; border:none;"></iframe>' } },
+            { path: '/productos', component: { template: '<iframe src="Productos/Productos.html" style="width:100%; height:100vh; border:none;"></iframe>' } },
+            { path: '/nosotros', component: { template: '<iframe src="Nosotros/Nosotros.html" style="width:100%; height:100vh; border:none;"></iframe>' } },
+            { path: '/contacto', component: { template: '<iframe src="Contacto/Contacto.html" style="width:100%; height:100vh; border:none;"></iframe>' } }
+        ];
+
+        // Create the router instance
+        const router = new VueRouter({
+            routes
+        });
+
+        // Create and mount the root instance
+        new Vue({
+            router,
+            el: '#app'
+        });
+    </script>
