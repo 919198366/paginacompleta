@@ -1,2 +1,0 @@
-# paginacompleta
-pafina web
