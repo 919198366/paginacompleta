@@ -1,0 +1,38 @@
+{
+  "name": "stylepolo-tienda-virtual",
+  "version": "1.0.0",
+  "description": "Tienda virtual de polos premium con funcionalidades completas de e-commerce",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "echo 'Deploy to GitHub Pages or Netlify'"
+  },
+  "keywords": [
+    "ecommerce",
+    "tienda-virtual",
+    "polos",
+    "bootstrap",
+    "javascript",
+    "html5",
+    "css3",
+    "pwa"
+  ],
+  "author": "Tu Nombre Completo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/practica_calificada_2.git"
+  },
+  "homepage": "https://tu-usuario.github.io/practica_calificada_2",
+  "bugs": {
+    "url": "https://github.com/tu-usuario/practica_calificada_2/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+} 

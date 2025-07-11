@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Polo Clásico Azul Marino",
+    "price": 89.90,
+    "description": "Polo clásico de algodón 100% premium, perfecto para uso diario. Cuello redondo y manga corta con acabado suave y transpirable.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop",
+    "category": "clásico",
+    "stock": 15
+  },
+  {
+    "id": 2,
+    "name": "Polo Deportivo Performance",
+    "price": 129.90,
+    "description": "Polo deportivo de alto rendimiento con tecnología de secado rápido. Ideal para entrenamientos y actividades físicas intensas.",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop",
+    "category": "deportivo",
+    "stock": 12
+  },
+  {
+    "id": 3,
+    "name": "Polo Casual Blanco Premium",
+    "price": 99.90,
+    "description": "Polo casual blanco de algodón orgánico. Diseño minimalista perfecto para cualquier ocasión casual o elegante.",
+    "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop",
+    "category": "casual",
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "name": "Polo Elegante Negro",
+    "price": 149.90,
+    "description": "Polo elegante negro con acabado premium. Perfecto para eventos formales y ocasiones especiales. Material de alta calidad.",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop",
+    "category": "elegante",
+    "stock": 8
+  },
+  {
+    "id": 5,
+    "name": "Polo Estampado Tropical",
+    "price": 119.90,
+    "description": "Polo con estampado tropical vibrante. Diseño único y llamativo perfecto para el verano y días soleados.",
+    "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&sat=50",
+    "category": "estampado",
+    "stock": 10
+  },
+  {
+    "id": 6,
+    "name": "Polo Rayas Marinas",
+    "price": 109.90,
+    "description": "Polo con rayas marinas clásicas. Diseño atemporal que nunca pasa de moda. Perfecto para uso casual y elegante.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop&sat=30",
+    "category": "rayas",
+    "stock": 18
+  },
+  {
+    "id": 7,
+    "name": "Polo Técnico Running",
+    "price": 159.90,
+    "description": "Polo técnico especializado para running. Material ultraligero con tecnología anti-humedad y ventilación avanzada.",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop&sat=40",
+    "category": "deportivo",
+    "stock": 14
+  },
+  {
+    "id": 8,
+    "name": "Polo Vintage Retro",
+    "price": 139.90,
+    "description": "Polo con diseño vintage retro inspirado en los años 80. Colores vibrantes y estilo único para los amantes de la moda retro.",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop&sat=60",
+    "category": "vintage",
+    "stock": 6
+  },
+  {
+    "id": 9,
+    "name": "Polo Slim Fit Gris",
+    "price": 129.90,
+    "description": "Polo slim fit en gris elegante. Corte moderno que se adapta perfectamente al cuerpo. Ideal para looks contemporáneos.",
+    "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=500&fit=crop&sat=20",
+    "category": "slim",
+    "stock": 16
+  },
+  {
+    "id": 10,
+    "name": "Polo Colección Verano",
+    "price": 169.90,
+    "description": "Polo de la colección verano con colores vibrantes y diseño fresco. Material ligero y transpirable para los días calurosos.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop&sat=70",
+    "category": "verano",
+    "stock": 22
+  },
+  {
+    "id": 11,
+    "name": "Polo Premium Algodón",
+    "price": 189.90,
+    "description": "Polo premium de algodón egipcio de la más alta calidad. Suavidad excepcional y durabilidad superior.",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop&sat=25",
+    "category": "premium",
+    "stock": 4
+  },
+  {
+    "id": 12,
+    "name": "Polo Edición Limitada",
+    "price": 249.90,
+    "description": "Polo de edición limitada con diseño exclusivo. Solo 50 unidades disponibles. Material premium y acabado artesanal.",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop&sat=80",
+    "category": "limitada",
+    "stock": 3
+  }
+]

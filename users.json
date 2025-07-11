@@ -1,10 +1,36 @@
-[
-  {
-    "username": "user1",
-    "password": "pass1"
-  },
-  {
-    "username": "user2",
-    "password": "pass2"
-  }
-]
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "pass1",
+      "name": "Juan Pérez",
+      "email": "juan.perez@email.com",
+      "role": "customer"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "pass2",
+      "name": "María García",
+      "email": "maria.garcia@email.com",
+      "role": "customer"
+    },
+    {
+      "id": 3,
+      "username": "admin",
+      "password": "admin123",
+      "name": "Administrador",
+      "email": "admin@stylepolo.com",
+      "role": "admin"
+    },
+    {
+      "id": 4,
+      "username": "demo",
+      "password": "demo123",
+      "name": "Usuario Demo",
+      "email": "demo@stylepolo.com",
+      "role": "customer"
+    }
+  ]
+}
